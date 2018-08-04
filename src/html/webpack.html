@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>webpack</title>
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/fonts.css">
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/webpack.css">
+</head>
+<body>
+   <div id="header"></div>
+   <div id="box" class="clearfix">
+    <div id="left"></div>
+    <div class="webpack">
+    <h2>webpack</h2>
+    <h3>webpack是什么？使用webpack的背景？</h3>
+    <ul>
+         <li>webpack是模块化管理工具，使用webpack可以对模块进行压缩、预处理、按需打包、按需加载等。</li>
+         <li>在前端大行其道的时代，不管是传统PC端应用，还是日益备受青睐的MobileAPP，功能越来越丰富，用户体验越来越好，必然导致业务逻辑越来越复杂，代码越来越多，客户端加载也是越来越慢。为了解决这些问题，便出现了如火如荼的模块化和一系列前端优化工具，webpack就是优化工具其中之一。</li>
+         <li>webpack是当下最热门的前端资源模块化管理和打包工具。它可以将许多松散的模块按照依赖和规则打包成符合生产环境部署的前端资源。本文就简单介绍webpack的基本使用和config配置。</li>
+         <li>前提：windows下node和npm环境已经配置OK，cmd命令行中node -v和npm -v都能正常显示版本。</li>
+    </ul>
+
+    <h3>webpack和gulp的区别</h3>
+    <ul>
+        <li>gulp是基于流的构建工具：all in one的打包模式，输出一个js文件和一个css文件，优点是减少http请求，万金油方案。</li>
+        <li>webpack是模块化管理工具，使用webpack可以对模块进行压缩、预处理、打包、按需加载等。</li>
+    </ul>
+
+    <h3>webpack有哪些重要特征？</h3>
+    <ul>
+       <li>插件化：webpack本身非常灵活，提供了丰富的插件接口。基于这些接口，webpack开发了很多插件作为内置功能。</li>
+       <li>速度快：webpack使用异步IO以及多级缓存机制。所以webpack的速度是很快的，尤其是增量更新。</li>
+       <li>丰富的Loaders：loaders用来对文件做预处理。这样webpack就可以打包任何静态文件。</li>
+       <li>高适配性：webpack同时支持AMD/CommonJs/ ES6模块方案。webpack会静态解析你的代码，自动帮你管理他们的依赖关系。此外，webpack对第三方库的兼容性很好。</li>
+       <li>代码拆分：webpack可以将你的代码分片，从而实现按需打包。这种机制可以保证页面只加载需要的JS代码，减少首次请求的时间。</li>
+       <li>优化：webpack提供了很多优化机制来减少打包输出的文件大小，不仅如此，它还提供了hash机制，来解决浏览器缓存问题。</li>
+       <li>开发模式友好：webpack为开发模式也提供了很多辅助功能。比如SourceMap、热更新等。</li>
+       <li>使用场景多：webpack不仅适用于web应用场景，也适用于Webworkers、Node.js场景</li>
+    </ul>
+
+    <h3>webpack 如何最佳配置？</h3>
+    <ul>
+        <li>webpack官方提供的配置方法是通过module.exports返回一个json，但是这种场景不灵活，不能适配多种场景。
+             比如要解决：production模式和development模式，webpack的配置是有差异的，大致有两种思路。</li>
+        <li>1、两份配置文件webpack.config.production.js/webpack.config.development.js，然后不同场景下，使用不同的配置文件。</li>
+        <li>2、通过module.exports返回函数，该函数能接受参数。</li>
+        <li>相对来说，第一种更简单，但是重复配置多；第二种更灵活，推荐第二种方式。那么，按返回函数的方式的配置代码架子如下：</li>
+    </ul>
+    <pre >
+       module.exports = function(env) {
+           return {
+               context: config.context,
+               entry: config.src,
+               output: {
+               path: path.join(config.jsDest, project),
+               filename: '[name].js',
+               chunkFilename: '[name].[chunkhash:8].js',
+               publicPath: '/assets/' + project + '/'
+               },
+               devtool: "eval",
+               watch: false,
+               profile: true,
+               cache: true,
+               module: {
+                   loaders: getLoaders(env)
+               },
+               resolve: {
+                   alias: getAlias(env)
+               },
+               plugins: getPlugins(env)
+           };
+       }
+    </pre>
+    <ul>
+        <li>其中关键的配置这儿简单介绍如下，后续的系列博客会根据每个点详细介绍。</li>
+        <li>context：上下文。</li>
+        <li>entry：入口文件，是所有依赖关系的入口，webpack从这个入口开始静态解析，分析模块之间的依赖关系。</li>
+        <li>output：打包输出的配置。</li>
+        <li>devtools：SourceMap选项，便于开发模式下调试。</li>
+        <li>watch：监听模式，增量更新，开发必备！</li>
+        <li>profile：优化。</li>
+        <li>cache：webpack构建的过程中会生成很多临时的文件，打开cache可以让这些临时的文件缓存起来，从而更快的构建。</li>
+        <li>module.loaders：如前文介绍，loaders用来对文件做预处理。这样webpack就可以打包任何静态文件。</li>
+        <li>resolve.alias：模块别名，这样可以更方便的引用模块。</li>
+        <li>plugins：如前文介绍，webpack的一些内置功能均是以插件的形式提供。</li>
+     </ul>
+    </div>
+    <div id="right"></div>
+  </div>
+   <div id="footer"></div>
+</body>
+</html>
+<script src="../js/jquery-3.2.1.min.js"></script>
+<script src="../js/Use_Plugin_CM.js"></script>
+<script>
+  $(function(){
+
+          $('pre').addClass('font-hei');
+
+
+          $('#header').load('common.html  .header', function(){
+                   //执行逻辑
+                   setInterval(function(){
+                        $('#header  h2  b').text(RSM.nowTime().now)
+                   },1000)
+          });
+
+          $('#left').load('common.html  .left', function(){
+                   //执行逻辑
+
+          });
+
+
+          $('#right').load('common.html  .right', function(){
+                   //执行逻辑
+
+          })
+
+          $('#footer').load('common.html  .footer', function(){
+                   //执行逻辑
+
+          })
+  })
+
+</script>
+
+
+
+
+

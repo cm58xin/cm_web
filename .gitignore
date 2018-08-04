@@ -1,0 +1,8 @@
+#过滤压缩包
+*.zip
+*.rar
+#过滤文件夹
+node_modules/
+
+
+gulpfile.js

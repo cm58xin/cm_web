@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>媒体查询</title>
+</head>
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/fonts.css">
+<link rel="stylesheet" href="../css/common.css">
+<link rel="stylesheet" href="../css/mediaQueries.css">
+<body>
+     <div id="header"></div>
+      <div id="box" class="clearfix">
+           <div id="left"></div>
+           <div class="media">
+               <h2>Isn't landscape & portrait</h2>
+               <h3>ipad</h3>
+               <pre >@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) { }</pre>
+               <h3>ipad Retina</h3>
+               <pre>@media only screen and (min-device-width : 768px) and (max-device-width : 1024px)and (-webkit-min-device-pixel-ratio: 2) { }</pre>
+               <h3>ipad1 & ipad2</h3>
+               <pre>@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (-webkit-min-device-pixel-ratio: 1) { }</pre>
+               <h3>ipad mini</h3>
+               <pre>@media only screen and (min-device-width : 768px) and (max-device-width : 1024px)and (-webkit-min-device-pixel-ratio: 1) { }</pre>
+               <h3>iphone 6p & iphone6</h3>
+               <pre>@media only screen and (max-device-width: 640px), only screen and (max-device-width: 667px), only screen and (max-width: 480px){ }</pre>
+               <h3>iphone 5</h3>
+               <pre>@media only screen and (min-device-width : 320px) and (max-device-width : 568px) { }</pre>
+               <h3>iphone 2G-4S</h3><pre>@media only screen and (min-device-width : 320px) and (max-device-width : 480px) { }</pre>
+               <h3>iPhoneX</h3>
+               <pre>@media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) { }</pre>
+               <h2>landscape 横屏</h2>
+               <h3>ipad</h3>
+               <pre>@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) { }</pre>
+               <h3>ipad Retina</h3>
+               <pre>@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio: 2) { }</pre>
+               <h3>ipad1 & ipad2</h3>
+               <pre>@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio: 1) { }</pre>
+                <h3>ipad mini</h3>
+               <pre>@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio: 1) { }</pre>
+                <h3>iphone 6p & iphone6</h3>
+                <pre>@media only screen and (max-device-width: 640px), only screen and (max-device-width: 667px), only screen and (max-width: 480px) and (orientation : landscape){ }</pre>
+                <h3>iphone 5</h3>
+                <pre> @media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : landscape) { }</pre>
+                <h3>iphone 2G-4S</h3>
+                <pre>@media only screen and (min-device-width : 320px) and (max-device-width : 480px) and (orientation : landscape) { }</pre>
+                <h3>iPhone8P</h3>
+                <pre> @media only screen and (device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) { }</pre>
+                <h2>portrait  竖屏</h2>
+                <h3>ipad</h3>
+                <pre>@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) { }</pre>
+                <h3>ipad Retina</h3>
+                <pre>@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio: 2) { }</pre>
+                <h3>ipad1 & ipad2</h3>
+                <pre>@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio: 1) { }</pre>
+                <h3>ipad mini</h3>
+                <pre>@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait)and (-webkit-min-device-pixel-ratio: 1) { }</pre>
+                <h3>iphone 6p & iphone6</h3>
+                <pre>@media only screen and (max-device-width: 640px), only screen and (max-device-width: 667px), only screen and (max-width: 480px) and (orientation : portrait){ }</pre>
+                <h3>iphone 6p</h3>
+                <pre> @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation : portrait) { }</pre>
+                <h3>iphone 6</h3>
+                <pre> @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (orientation : portrait) { }</pre>
+                <h3>iphone 5</h3>
+                <pre>@media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : portrait) { }</pre>
+                <h3>iphone 2G-4S</h3>
+                <pre>@media only screen and (min-device-width : 320px) and (max-device-width : 480px) and (orientation : portrait) { }</pre>
+           </div>
+           <div id="right"></div>
+      </div>
+      <div  id="footer"></div>
+</body>
+</html>
+<script src="../js/jquery-3.2.1.min.js"></script>
+<script src="../js/Use_Plugin_CM.js"></script>
+<script>
+    $(function(){
+
+            $('pre').addClass('font-hei');
+
+
+
+            $('#header').load('common.html  .header', function(){
+                     //执行逻辑
+
+            });
+
+            setInterval(function(){
+                 $('#header  h2  b').text(RSM.nowTime().now)
+            },1000)
+
+
+            $('#left').load('common.html  .left', function(){
+                     //执行逻辑
+
+            });
+
+
+            $('#right').load('common.html  .right', function(){
+                     //执行逻辑
+
+            })
+
+
+            $('#footer').load('common.html  .footer', function(){
+                     //执行逻辑
+
+            })
+
+
+
+    })
+</script>
+
+
+

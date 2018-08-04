@@ -1,0 +1,81 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body,
+dt,
+figcaption,
+figure,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+hr,
+input,
+li,
+ol,
+p,
+select,
+table,
+td,
+textarea,
+th,
+tt,
+ul {
+  padding: 0;
+  margin: 0;
+}
+article,
+aside,
+canvas,
+details,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+summary {
+  display: block;
+}
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: #000;
+}
+em {
+  font-style: normal;
+}
+.clearfix::after {
+  content: "";
+  display: block;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+  clear: both;
+  zoom: 1;
+}
+img {
+  display: block;
+  border: 0 none;
+  vertical-align: baseline;
+}
+table {
+  border-collapse: collapse;
+}
+.container {
+  width: 1000px;
+  margin: 0 auto;
+}
+textarea {
+  resize: none;
+  overflow: hidden;
+}
+input {
+  outline: 0;
+}
